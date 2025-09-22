@@ -1,0 +1,7 @@
+<% if (typeof success !== 'undefined' && success.length > 0) { %>
+<div class="flash-success">
+  <% success.forEach(msg => { %>
+  <p><%= msg %></p>
+  <% }) %>
+</div>
+<% } %>

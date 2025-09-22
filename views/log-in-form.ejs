@@ -1,4 +1,16 @@
+<% if (success.length > 0) { %> <%- include ('./partials/flashSuccess',
+{success:success})%> <% } %>
+
 <h1>Please log in</h1>
+
+<% if (errors.length > 0) { %>
+<ul>
+  <% errors.forEach((error) => { %>
+  <li><%= error %></li>
+  <% }) %>
+</ul>
+<% } %>
+
 <form action="/log-in" method="POST">
   <label for="username">Username</label>
   <input id="username" name="username" placeholder="username" type="text" />

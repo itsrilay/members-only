@@ -11,6 +11,7 @@ const authRouter = require('./routes/authRouter');
 const passportConfig = require('./config/passport');
 const pgSession = require('connect-pg-simple')(session);
 const pool = require('./config/db');
+const flash = require('connect-flash');
 
 require('dotenv').config();
 
@@ -72,6 +73,7 @@ passport.deserializeUser(passportConfig.deserializeUser);
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(flash());
 
 // Expose user
 
@@ -86,7 +88,9 @@ app.use('/', authRouter);
 
 // Homepage
 
-app.get('/', (req, res) => res.render('index', { title: 'Members Only' }));
+app.get('/', (req, res) =>
+  res.render('index', { title: 'Members Only', success: req.flash('success') })
+);
 
 app.listen(3000, (error) => {
   if (error) {
