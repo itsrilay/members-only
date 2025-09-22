@@ -1,0 +1,35 @@
+:root {
+  --text: #050909;
+  --background: #f3f9f8;
+  --primary: #52b8a8;
+  --secondary: #9dddd3;
+  --accent: #61d2c0;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', sans-serif, system-ui;
+  color: var(--text);
+}
+
+a {
+  text-decoration: none;
+  color: var(--text);
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  background-color: var(--primary);
+  padding: 1em;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1em;
+}

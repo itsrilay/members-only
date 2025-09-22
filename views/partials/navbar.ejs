@@ -1,7 +1,11 @@
-<div>
+<div class="navbar">
   <a href="/">Members Only</a>
-  <div>
+  <div class="nav-links">
+    <% if (locals.user) {%>
+    <a href="/log-out">Log Out</a>
+    <% } else { %>
     <a href="/sign-up">Sign Up</a>
-    <a href="/login">Login</a>
+    <a href="/log-in">Login</a>
+    <% } %>
   </div>
 </div>
